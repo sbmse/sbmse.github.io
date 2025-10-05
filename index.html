@@ -1,34 +1,163 @@
-<html><head>
-         <title>ICASSP 2026 SBMSE Demo Page</title>
-        <link rel="stylesheet" type="text/css" href="css/main.css">
-    </head>
-    <body>
-<!--         <nav> 
-            <ul>
-                <li><a href="">Code</a></li>
-                <li><a href="">Paper</a></li>
-            </ul>
-        </nav> -->
-        <div class="container">
-            <div class="blurb">
-                <center>
-                <h1>Schrödinger Bridge Mamba for One-Step Speech Enhancement</h1>
-<!--                 <h3> Jing Yang, Tristan Cinquin, Gábor Sörös </h3> -->
-                </center>         
-                
-                <p> To Appear ...... </p>
-                                
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>ICASSP 2026 SBMSE Demo Page</title>
+  <style>
+    body {
+      margin: 0;
+      font-family: 'Inter', sans-serif;
+      background: #0d1117;
+      color: #e6edf3;
+      line-height: 1.6;
+    }
+    header {
+      text-align: center;
+      padding: 80px 20px;
+      background: linear-gradient(135deg,#1f6feb, #58a6ff);
+      color: white;
+    }
+    .page-title { font-size: 42px; font-weight: 800; margin-bottom: 10px; }
+    .authors { font-size: 16px; opacity: 0.9; }
+    .affiliations { font-size: 14px; opacity: 0.8; }
 
-            </div><!-- /.blurb -->
-        </div><!-- /.container -->
-        <footer>
-            <ul>
-<!--                 <li>To be added</li> -->
-            </ul>
-            
-        </footer>
-    
-<!--    </center> -->
+    nav {
+      position: sticky; top: 0; background: rgba(13,17,23,0.9);
+      backdrop-filter: blur(6px); border-bottom: 1px solid #30363d; z-index: 10;
+    }
+    .nav-inner {
+      max-width: 1200px; margin: 0 auto; display: flex; gap: 20px;
+      padding: 12px 20px; overflow-x: auto;
+    }
+    .nav-link {
+      color: #e6edf3; text-decoration: none; padding: 6px 12px;
+      border-radius: 8px; transition: background 0.2s;
+    }
+    .nav-link:hover { background: rgba(255,255,255,0.08); }
 
+    main { max-width: 1200px; margin: 0 auto; padding: 40px 20px; }
+    section {
+      margin-bottom: 40px; padding: 24px; border-radius: 12px;
+      background: #161b22; border: 1px solid #30363d;
+    }
+    h2 { margin-top: 0; font-size: 24px; font-weight: 700; }
+    .abstract { color: #8b949e; font-size: 16px; }
 
-</body></html>
+    .group { margin-bottom: 28px; }
+    .group-title { font-weight: 600; color: #8b949e; margin-bottom: 12px; }
+    .items {
+      display: grid; gap: 16px;
+      grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
+    }
+    .item {
+      background: #0f141c; border: 1px solid #30363d; border-radius: 12px;
+      overflow: hidden; box-shadow: 0 2px 6px rgba(18, 15, 15, 0.4);
+      transition: transform 0.2s, box-shadow 0.2s;
+    }
+    .item:hover { transform: translateY(-4px); box-shadow: 0 6px 12px rgba(0,0,0,0.6); }
+    .item-header {
+      padding: 8px 12px; font-size: 14px; color: #8b949e;
+      border-bottom: 1px solid #30363d; background: rgba(255,255,255,0.02);
+    }
+    .spectrogram { width: 100%; aspect-ratio: 16/9; object-fit: cover; display: block; }
+    .audio-bar { padding: 10px; border-top: 1px solid #30363d; background: rgba(255,255,255,0.02); }
+    audio { width: 100%; }
+    .footer { margin-top: 60px; text-align: center; color: #8b949e; font-size: 13px; }
+  </style>
+</head>
+<body>
+  <header>
+    <h1 class="page-title">Schrödinger Bridge Mamba for One-Step Speech Enhancement</h1>
+    <div class="authors">Jing Yang, Sirui Wang, Chao Wu, Fan Fan</div>
+    <div class="affiliations">Central Media Technology Institute, Huawei</div>
+  </header>
+
+  <nav>
+    <div class="nav-inner">
+      <a class="nav-link" href="#abstract">Abstract</a>
+      <a class="nav-link" href="#demo-1">DNS Real Recordings</a>
+      <a class="nav-link" href="#demo-2">DNS With Reverb</a>
+      <a class="nav-link" href="#demo-3">DNS No Reverb</a>
+      <a class="nav-link" href="#demo-4">VoiceBand-Demand</a>
+    </div>
+  </nav>
+
+  <main>
+    <section id="abstract">
+      <h2>Abstract</h2>
+      <p class="abstract">
+        We propose Schrödinger Bridge Mamba (SBM), a new concept of training-inference framework motivated by the inherent compatibility between Schrödinger Bridge (SB) training paradigm and selective state-space model architecture. We exemplify the concept of SBM with an implementation for speech enhancement. Experiments on a joint denoising and dereverberation task using four benchmark datasets demonstrate that SBM, with only 1-step inference, outperforms strong baselines with 1-step or iterative inference and achieves the best real-time factor (RTF). The integration of SB paradigm and state-space model indicates a promising direction for exploring new deep generative models, with strong potential for application in a broad range of generative tasks beyond audio.
+      </p>
+    </section>
+
+    <!-- ===== Demo Sections ===== -->
+    <!-- 每个 Demo 有 8 个 Group，每个 Group 有 8 个 Item (A–H) -->
+    <!-- 文件名请自行替换 -->
+
+    <!-- Demo 1 -->
+    <section id="demo-1">
+      <h2>DNS Real Recordings</h2>
+      <!-- Group 1–8 -->
+      <div class="group">
+        <div class="group-title">Group 1</div>
+        <div class="items">
+          <div class="item"><div class="item-header">Input</div>
+            <img class="spectrogram" src="DNS_real_recordings/audioset_realrec_airconditioner_2TE3LoA2OUQ.png" alt="Spectrogram A">
+            <div class="audio-bar"><audio controls src="DNS_real_recordings/audioset_realrec_airconditioner_2TE3LoA2OUQ.wav"></audio></div>
+          </div>
+          <div class="item"><div class="item-header">SB-NCSN++(50)</div>
+            <img class="spectrogram" src="DNS_real_recordings/SBncsnpp50_audioset_realrec_airconditioner_2TE3LoA2OUQ.png" alt="Spectrogram B">
+            <div class="audio-bar"><audio controls src="DNS_real_recordings/SBncsnpp50_audioset_realrec_airconditioner_2TE3LoA2OUQ.wav"></audio></div>
+          </div>    
+          <div class="item"><div class="item-header">SB-NCSN++(10)</div>
+            <img class="spectrogram" src="DNS_real_recordings/SBncsnpp10_audioset_realrec_airconditioner_2TE3LoA2OUQ.png" alt="Spectrogram C">
+            <div class="audio-bar"><audio controls src="DNS_real_recordings/SBncsnpp10_audioset_realrec_airconditioner_2TE3LoA2OUQ.wav"></audio></div>
+          </div>                    
+          <div class="item"><div class="item-header">SB-NCSN++(1)</div>
+            <img class="spectrogram" src="DNS_real_recordings/SBncsnpp1_audioset_realrec_airconditioner_2TE3LoA2OUQ.png" alt="Spectrogram D">
+            <div class="audio-bar"><audio controls src="DNS_real_recordings/SBncsnpp1_audioset_realrec_airconditioner_2TE3LoA2OUQ.wav"></audio></div>
+          </div> 
+          <div class="item"><div class="item-header">SBCTM</div>
+            <img class="spectrogram" src="DNS_real_recordings/SBCTM1_audioset_realrec_airconditioner_2TE3LoA2OUQ.png" alt="Spectrogram E">
+            <div class="audio-bar"><audio controls src="DNS_real_recordings/SBCTM1_audioset_realrec_airconditioner_2TE3LoA2OUQ.wav"></audio></div>
+          </div>                        
+          <div class="item"><div class="item-header">SB-UFOGen</div>
+            <img class="spectrogram" src="DNS_real_recordings/SBGAN1_audioset_realrec_airconditioner_2TE3LoA2OUQ.png" alt="Spectrogram F">
+            <div class="audio-bar"><audio controls src="DNS_real_recordings/SBGAN1_audioset_realrec_airconditioner_2TE3LoA2OUQ.wav"></audio></div>
+          </div>   
+          <div class="item"><div class="item-header">Mamba-base</div>
+            <img class="spectrogram" src="DNS_real_recordings/v103ori_audioset_realrec_airconditioner_2TE3LoA2OUQ.png" alt="Spectrogram G">
+            <div class="audio-bar"><audio controls src="DNS_real_recordings/v103ori_audioset_realrec_airconditioner_2TE3LoA2OUQ.wav"></audio></div>
+          </div>
+          <div class="item"><div class="item-header">SBM</div>
+            <img class="spectrogram" src="DNS_real_recordings/v103SBM_audioset_realrec_airconditioner_2TE3LoA2OUQ.png" alt="Spectrogram H">
+            <div class="audio-bar"><audio controls src="DNS_real_recordings/v103SBM_audioset_realrec_airconditioner_2TE3LoA2OUQ.wav"></audio></div>
+          </div>          
+        </div>
+      </div>
+      <!-- Group 2–8 同理复制 -->
+    </section>
+
+    <!-- Demo 2 -->
+    <section id="demo-2">
+      <h2>Demo 2</h2>
+      <!-- Group 1–8 同 Demo 1 模板 -->
+    </section>
+
+    <!-- Demo 3 -->
+    <section id="demo-3">
+      <h2>Demo 3</h2>
+      <!-- Group 1–8 同 Demo 1 模板 -->
+    </section>
+
+    <!-- Demo 4 -->
+    <section id="demo-4">
+      <h2>Demo 4</h2>
+      <!-- Group 1–8 同 Demo 1 模板 -->
+    </section>
+
+    <div class="footer">© 2025 Paper Demo</div>
+  </main>
+</body>
+</html>
