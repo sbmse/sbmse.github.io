@@ -51,20 +51,20 @@
     .group { margin-bottom: 28px; }
     .group-title { font-weight: 600; color: #8b949e; margin-bottom: 12px; }
     .items {
-      display: grid; gap: 16px;
-      grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
+      display: flex;              /* 改成 flex 布局 */
+      flex-wrap: nowrap;          /* 不允许换行 */
+      gap: 16px;                  /* 卡片之间的间距 */
+      overflow-x: auto;           /* 如果屏幕放不下，允许横向滚动 */
     }
     .item {
-      background: #0f141c; border: 1px solid #30363d; border-radius: 12px;
-      overflow: hidden; box-shadow: 0 2px 6px rgba(18, 15, 15, 0.4);
-      transition: transform 0.2s, box-shadow 0.2s;
+      flex: 0 0 200px;            /* 每个卡片固定宽度，比如 200px */
     }
     .item:hover { transform: translateY(-4px); box-shadow: 0 6px 12px rgba(0,0,0,0.6); }
     .item-header {
       padding: 8px 12px; font-size: 14px; color: #8b949e;
       border-bottom: 1px solid #30363d; background: rgba(255,255,255,0.02);
     }
-    .spectrogram { width: 100%; aspect-ratio: 16/9; object-fit: cover; display: block; }
+    .spectrogram { width: 100%; height: auto; object-fit: cover; display: block; }
     .audio-bar { padding: 10px; border-top: 1px solid #30363d; background: rgba(255,255,255,0.02); }
     audio { width: 100%; }
     .footer { margin-top: 60px; text-align: center; color: #8b949e; font-size: 13px; }
